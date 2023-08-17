@@ -29,7 +29,7 @@ public class CardDeliveryTest {
         $("[data-test-id='phone'] input").setValue("+79787574471");
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        WebElement title = $("[data-test-id='notification']") .shouldBe(Condition.visible, Duration.ofSeconds(15));
+        WebElement title = $("[data-test-id='notification'] .notification__title") .shouldBe(Condition.visible, Duration.ofSeconds(15));
         Assertions.assertEquals("Успешно!", title.getText());
         WebElement content = $("[data-test-id='notification'] .notification__content");
         Assertions.assertEquals("Встреча успешно забронирована на " + currentDate, content.getText());
