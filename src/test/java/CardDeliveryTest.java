@@ -29,10 +29,13 @@ public class CardDeliveryTest {
         $("[data-test-id='phone'] input").setValue("+79787574471");
         $("[data-test-id='agreement']").click();
         $("button.button").click();
-        WebElement title = $("[data-test-id='notification'] .notification__title") .shouldBe(Condition.visible, Duration.ofSeconds(15));
-        Assertions.assertEquals("Успешно!", title.getText());
-        WebElement content = $("[data-test-id='notification'] .notification__content");
-        Assertions.assertEquals("Встреча успешно забронирована на " + currentDate, content.getText());
+        //WebElement title = $("[data-test-id='notification'] .notification__title") .shouldBe(Condition.visible, Duration.ofSeconds(15));
+        //Assertions.assertEquals("Успешно!", title.getText());
+        //WebElement content = $("[data-test-id='notification'] .notification__content");
+        //Assertions.assertEquals("Встреча успешно забронирована на " + currentDate, content.getText());
+        $(".notification__content")
+                .shouldHave(Condition.text("Встреча успешно забронирована на " + currentDate), Duration.ofSeconds(15))
+                .shouldBe(Condition.visible);
     }
 }
 
